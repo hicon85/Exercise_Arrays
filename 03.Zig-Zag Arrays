@@ -1,0 +1,38 @@
+using System;
+using System.Linq;
+namespace _03.Zig_Zag_Arrays
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            string[] firstNumber = new string[n];
+            string[] secundsNumber = new string[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                string[] goodJob = Console.ReadLine()
+                    .Split()
+                    .ToArray();
+
+                string fisrt = goodJob[0];
+                string secunds = goodJob[1];
+
+                if(i % 2 == 0)
+                {
+                    firstNumber[i] = fisrt;
+                    secundsNumber[i] = secunds;
+                }
+                else if(i % 2 == 1)
+                {
+                    firstNumber[i] = secunds;
+                    secundsNumber[i] = fisrt;
+                }
+            }
+            Console.WriteLine(string.Join(" ",firstNumber));
+            Console.WriteLine(string.Join(" ",secundsNumber));
+        }
+    }
+}
