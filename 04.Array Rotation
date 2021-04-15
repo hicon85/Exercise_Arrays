@@ -1,0 +1,46 @@
+using System;
+using System.Linq;
+
+namespace _04.Array_Rotation
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] aaray = Console.ReadLine()
+                 .Split()
+                 .Select(int.Parse)
+                 .ToArray();
+
+            int n = int.Parse(Console.ReadLine());
+
+            if(n > aaray.Length)
+            {
+                n -= aaray.Length;
+            }
+
+            int[] goodJob = new int[aaray.Length];
+
+            int newNumber = 0;
+
+            for (int i = 0; i < goodJob.Length-n; i++)
+            {
+                goodJob[i] = aaray[i + n];
+                newNumber++;
+            }
+
+            int total = 0;
+
+            for (int j = newNumber; j < goodJob.Length; j++)
+            {
+                goodJob[j] = aaray[total];
+                total++;
+            }
+
+            for (int i = 0; i < goodJob.Length; i++)
+            {
+                Console.Write(goodJob[i] + " ");
+            }
+        }
+    }
+}
